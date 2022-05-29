@@ -1,6 +1,8 @@
 package com.course.practicaljava.entity;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Car {
 
@@ -10,9 +12,18 @@ public class Car {
 	private int price;
 	private boolean available;
 	private LocalDate firstReleaseDate;
+	private List<String> additionalFeatures;
 
 	public Car() {
 
+	}
+
+	public List<String> getAdditionalFeatures() {
+		return additionalFeatures;
+	}
+
+	public void setAdditionalFeatures(List<String> additionalFeatures) {
+		this.additionalFeatures = additionalFeatures;
 	}
 
 	public Car(String brand, String color, String type) {
@@ -85,4 +96,5 @@ public class Car {
 		return "Car [brand=" + brand + ", color=" + color + ", type=" + type + ", price=" + price + ", available="
 				+ available + ", firstReleaseDate=" + firstReleaseDate + "]";
 	}
+
 }
