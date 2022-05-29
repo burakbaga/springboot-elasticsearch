@@ -27,4 +27,8 @@ public class DefaultRestApi {
 	public String time() {
 		return LocalTime.now().toString();
 	}
+	
+	//public String headerByAnnotation(@RequestHeaderString headerUserAgent,String headerPracticalJava) {
+		
+	
 }
