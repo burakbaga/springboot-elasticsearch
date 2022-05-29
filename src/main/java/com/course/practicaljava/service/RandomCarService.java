@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import org.springframework.stereotype.Service;
 
 import com.course.practicaljava.entity.Car;
+import com.course.practicaljava.entity.Engine;
+import com.course.practicaljava.entity.Tire;
 import com.course.practicaljava.util.RandomDateUtil;
 
 import io.netty.util.internal.ThreadLocalRandom;
@@ -28,12 +30,42 @@ public class RandomCarService implements CarService {
 			additionalFeatures.add(ADDITIONAL_FEATURES.get(i));
 		}
 		
+		var fuel = FUELS.get(ThreadLocalRandom.current().nextInt(FUELS.size()));
+		var horsePower = ThreadLocalRandom.current().nextInt(100,221);
+		
+		var engine = new Engine();
+		engine.setFuelType(fuel);
+		engine.setHorsePower(horsePower);
+		
+		var tires = new ArrayList<Tire>();
+		
+		for (int i=0;i<3;i++) {
+			var tire = new Tire();
+			var manufacturer = TIRE_MANUFACTURES.get(ThreadLocalRandom.current().nextInt(TIRE_MANUFACTURES.size()));
+			var size = ThreadLocalRandom.current().nextInt(15,18);
+			var tirePrice = ThreadLocalRandom.current().nextInt(100,401);
+			
+			
+			
+			tire.setManufacturer(manufacturer);
+			tire.setPrice(tirePrice);
+			tire.setSize(size);
+			
+			tires.add(tire);
+		}
+		
+		
+		var secretFeature = ThreadLocalRandom.current().nextBoolean() ? "Can fly" : null;
+		
 		var result = new Car(brand,color,type);
 		
 		result.setAvailable(available);
 		result.setPrice(price);
 		result.setFirstReleaseDate(firstRelaseDate);
 		result.setAdditionalFeatures(additionalFeatures);
+		result.setEngine(engine);
+		result.setTires(tires);
+		result.setSecretFeature(secretFeature);
 		
 
 		return result;
