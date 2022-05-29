@@ -25,6 +25,7 @@ replay_pid*
 
 .metadata
 bin/
+log/
 tmp/
 *.tmp
 *.bak
