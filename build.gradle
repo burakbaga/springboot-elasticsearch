@@ -19,11 +19,19 @@ repositories {
 //	}
 //}
 
+ext {
+	set('apacheCommonsLang3Version', "3.10")
+	set('springdocVersion', "1.4.3")
+	set('micrometerRegistryVersion', "1.5.2")
+}
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
 	implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.9'
 	implementation 'org.springframework.boot:spring-boot-starter-data-elasticsearch'
+	implementation ('org.springframework.boot:spring-boot-starter-actuator')
+	implementation "io.micrometer:micrometer-registry-elastic:${micrometerRegistryVersion}"
+	implementation "org.springdoc:springdoc-openapi-webflux-ui:${springdocVersion}"
 	
 	//compileOnly("org.springframework.boot:spring-boot-devtools")
 	
